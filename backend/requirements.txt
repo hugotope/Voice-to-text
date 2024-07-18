@@ -1,0 +1,14 @@
+# FastAPI y servidor
+fastapi>=0.104.1
+uvicorn[standard]>=0.24.0
+python-multipart>=0.0.6
+
+# Modelo de transcripción
+faster-whisper>=1.2.0  # Whisper para transcripción
+
+# Utilidades
+pydantic>=2.5.0
+python-dotenv>=1.0.0
+
+# Opcional: para GPU (descomentar si tienes CUDA)
+# torch==2.1.0+cu118 --index-url https://download.pytorch.org/whl/cu118

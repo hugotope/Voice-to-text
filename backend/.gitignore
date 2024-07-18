@@ -1,0 +1,29 @@
+node_modules/
+.env
+uploads/
+*.log
+.DS_Store
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# uv
+.uv/
+uv.lock
+
+# Modelos descargados (opcional, descomentar si quieres ignorarlos)
+# .cache/
+# models/

@@ -1,0 +1,24 @@
+# Backend
+backend/node_modules/
+backend/.env
+backend/uploads/
+backend/*.log
+
+# Android
+android/.gradle/
+android/.idea/
+android/local.properties
+android/*.iml
+android/app/build/
+android/build/
+android/.cxx/
+android/.externalNativeBuild/
+
+# General
+.DS_Store
+*.log
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

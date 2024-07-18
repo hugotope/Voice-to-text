@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Meeting Feedback</string>
+    <string name="btn_record">Grabar Reunión</string>
+    <string name="status_ready">Listo para grabar</string>
+    <string name="status_recording">Grabando...</string>
+    <string name="status_processing">Procesando audio...</string>
+    <string name="status_transcribing">Transcribiendo...</string>
+    <string name="status_generating">Generando feedback...</string>
+    <string name="status_complete">Completado</string>
+    <string name="status_error">Error: %1$s</string>
+    <string name="label_transcription">Transcripción</string>
+    <string name="label_feedback">Feedback de la Reunión</string>
+    <string name="no_transcription">No hay transcripción disponible</string>
+    <string name="no_feedback">No hay feedback disponible</string>
+    <string name="permission_audio_required">Se requiere permiso de audio para grabar</string>
+    <string name="error_recording">Error al grabar audio</string>
+    <string name="error_network">Error de conexión. Verifica tu conexión a internet.</string>
+    <string name="error_server">Error del servidor. Verifica que el backend esté funcionando.</string>
+    <string name="error_timeout">Tiempo de espera agotado. El servidor tardó demasiado en responder.</string>
+    <string name="error_short_recording">Grabación demasiado corta. Intenta grabar más tiempo.</string>
+</resources>
