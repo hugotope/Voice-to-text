@@ -19,8 +19,8 @@ Sistema para transcribir reuniones y generar informes estructurados automáticam
 
 2. **Primera ejecución:**
    - Se descargará Whisper (~500MB) para transcripción
-   - Los informes se generan con análisis de reglas (sin descargas adicionales)
-   - Esto puede tardar 3-5 minutos
+   - Los informes se generan con la **API gratuita de Google Gemini** (configura `GEMINI_API_KEY` en `.env`) o con análisis por reglas si no la configuras
+   - Cada informe se genera también en **PDF** y se puede descargar desde `/files/report/{filename}`
 
 3. **El servidor estará disponible en:**
    - http://localhost:3000
@@ -29,11 +29,12 @@ Sistema para transcribir reuniones y generar informes estructurados automáticam
 
 - `GET /health` - Verificar estado del servidor
 - `POST /transcribe` - Transcribir audio (Whisper)
-- `POST /feedback` - Generar informe estructurado (GPT-2)
-- `POST /process` - Transcribir y generar informe en una llamada
+- `POST /feedback` - Generar informe (API Gemini o reglas) y **PDF**
+- `POST /process` - Transcribir + generar informe + **PDF** en una llamada
 - `GET /files/list` - Listar archivos guardados
 - `GET /files/audio/{filename}` - Descargar archivo de audio
 - `GET /files/transcription/{filename}` - Descargar transcripción
+- `GET /files/report/{filename}` - Descargar **informe en PDF**
 
 ## 🔧 Configuración
 
@@ -41,11 +42,24 @@ Sistema para transcribir reuniones y generar informes estructurados automáticam
 
 ```env
 PORT=3000
+# Recomendado: API gratuita de Google Gemini para mejores informes
+# https://aistudio.google.com/apikey
+GEMINI_API_KEY=tu_clave_aqui
 ```
 
 ## 📱 App Android
 
-La app Android está en la carpeta `android/`. Configura la URL del servidor en `MainActivity.kt`:
+La app Android está en la carpeta `android/`. Configura la URL del servidor en `MainActivity.kt`.
+
+### Si Gradle no arranca (falta gradle-wrapper.jar)
+
+En la carpeta `android/` ejecuta una vez en PowerShell:
+
+```powershell
+.\restaurar-gradle-wrapper.ps1
+```
+
+O, si tienes Gradle instalado globalmente: `gradle wrapper --gradle-version=8.6`. Luego usa `.\gradlew.bat` para compilar.
 
 ```kotlin
 private val backendBaseUrl = "http://TU_IP:3000"
@@ -53,27 +67,20 @@ private val backendBaseUrl = "http://TU_IP:3000"
 
 ## 📝 Funcionalidad
 
-1. **Transcripción**: Usa Whisper para transcribir audio a texto
-2. **Generación de Informes**: Usa análisis basado en reglas (sin ML) para extraer información y generar un informe estructurado. Identifica automáticamente:
-   - Decisiones tomadas
-   - Acciones pendientes
-   - Temas importantes
-   - Participantes
-   - Puntos clave
-   - Áreas de mejora
+1. **Transcripción**: Whisper (local) transcribe el audio a texto.
+2. **Informes**: Se envía el texto a la **API gratuita de Google Gemini**, que extrae:
+   - Resumen, puntos clave, decisiones, acciones, temas importantes
+   - Participantes, siguientes pasos, aspectos positivos y áreas de mejora
+3. **PDF**: Con esa información se genera un **informe en PDF** que se guarda y puede descargarse.
 
-Los archivos de audio y transcripciones se guardan en `backend/uploads/`.
+Si no configuras `GEMINI_API_KEY`, se usa un análisis por reglas (menos preciso pero sin API).
 
-## ⚡ Ventajas del sistema de reglas
-
-- **Instantáneo**: No requiere procesamiento ML pesado
-- **Sin errores de memoria**: No usa GPU/CPU intensivo
-- **Confiable**: Siempre funciona, sin crashes
-- **Sin descargas**: Solo Whisper (~500MB)
+Los archivos de audio, transcripciones e informes PDF se guardan en `backend/uploads/`.
 
 ## ⚡ Tecnologías
 
 - **Backend**: Python + FastAPI
 - **Transcripción**: faster-whisper (Whisper local)
-- **Generación de Informes**: Análisis basado en reglas (sin ML)
+- **Informes**: API Google Gemini (gratuita) o análisis por reglas
+- **PDF**: ReportLab
 - **App Android**: Kotlin
