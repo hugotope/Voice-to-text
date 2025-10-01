@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.MeetingFeedback" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/md_primary_night</item>
+        <item name="colorPrimaryVariant">@color/md_primary_variant_night</item>
+        <item name="colorOnPrimary">@color/md_on_primary_night</item>
+        <item name="colorSecondary">@color/md_secondary_night</item>
+        <item name="colorSecondaryVariant">@color/md_secondary_variant_night</item>
+        <item name="colorOnSecondary">@color/md_on_secondary_night</item>
+        <item name="android:statusBarColor">@color/md_background_night</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/md_background_night</item>
+        <item name="android:windowBackground">@color/md_background_night</item>
+    </style>
+</resources>

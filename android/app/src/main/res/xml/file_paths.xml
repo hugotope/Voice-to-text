@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- External files dir: getExternalFilesDir(DIRECTORY_DOWNLOADS) -->
+    <external-files-path name="voicelog_downloads" path="Downloads/" />
+    <!-- Internal cache dir: for temp files -->
+    <cache-path name="voicelog_cache" path="." />
+</paths>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark theme color tokens -->
+    <color name="md_primary_night">#90CAF9</color>
+    <color name="md_primary_variant_night">#1565C0</color>
+    <color name="md_on_primary_night">#0D47A1</color>
+    <color name="md_secondary_night">#80CBC4</color>
+    <color name="md_secondary_variant_night">#00695C</color>
+    <color name="md_on_secondary_night">#004D40</color>
+    <color name="md_background_night">#0F1214</color>
+    <color name="md_surface_night">#181C1F</color>
+</resources>
