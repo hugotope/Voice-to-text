@@ -6,6 +6,12 @@ python-multipart>=0.0.6
 # Modelo de transcripción
 faster-whisper>=1.2.0  # Whisper para transcripción
 
+# API gratuita para extracción de informes (Google Gemini)
+google-generativeai>=0.8.0
+
+# Generación de PDF
+reportlab>=4.0.0
+
 # Utilidades
 pydantic>=2.5.0
 python-dotenv>=1.0.0
